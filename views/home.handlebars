@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col s12">
+        <div class="text-center">
+            <h1>NY Times Scraper</h1>
+        </div>
+
+    </div>
+    <div class="col s12">
+        {{#if article}}
+            {{#each article}}
+            <div class="card-panel">
+                <div class="card-title">
+                    <h4>{{this.title}}</h4>
+                </div>
+                <div class="card-body">
+                    <p> {{this.preview}}</p>
+                    <a href={{this.link}} target="_blank">{{this.link}}</a>
+                    <br><br>
+                    <button type="button" class="btn save" data-id={{this._id}}>Save Article</button>
+                </div>
+            </div>
+            {{/each}}
+        {{else}}
+        <div class="card-panel">
+            <div class="card-body">
+            <h4>No New Articles xD</h4>
+            </div>
+         </div>
+        {{/if}}
+    </div>
+</div>

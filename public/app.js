@@ -1,4 +1,4 @@
-$("#scrape").on(click, function(){
+$("#scrape").on("click", function(){
     $.ajax({
         method: "GET",
         url: "/scrape",
@@ -38,7 +38,7 @@ $(".saveNote").on("click", function(){
         }
     }).done(function(data){
         $("noteBody" + articleId).val("")
-        $(".noteModal").modal("hide");
+        $(".modalNote").modal("hide");
         window.location = "/saved"
     })
 })
