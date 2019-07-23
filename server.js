@@ -8,7 +8,7 @@ var request = require("request");
 var Note = require("./models/Note.js");
 var Article = require("./models/Article.js");
 
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 var app = express();
 
