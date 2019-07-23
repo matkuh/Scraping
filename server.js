@@ -6,6 +6,9 @@ var cheerio = require("cheerio");
 var db = require("./models");
 var path = require("path");
 
+var Note = require("./models/Note.js");
+var Article = require("./models/Article.js");
+
 var PORT = 8080;
 
 var app = express();
@@ -23,7 +26,7 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-mongoose.connect("", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
 app.get("/", function (req, res) {
     Article.find({ "saved": false }, function (error, data) {
@@ -31,7 +34,7 @@ app.get("/", function (req, res) {
             article: data
         };
         console.log(result);
-        res.render("index", result);
+        res.render("home", result);
     });
 });
 
