@@ -26,7 +26,7 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://heroku_xgjl43l4:6lssdt70bers6nffon1st9t7nv@ds253857.mlab.com:53857/heroku_xgjl43l4";
 
 mongoose.connect(MONGODB_URI);
 
