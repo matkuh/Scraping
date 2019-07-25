@@ -10,21 +10,26 @@ $("#scrape").on("click", function () {
 
 $(".save").on("click", function () {
     var articlesId = $(this).attr("data-id");
+    var self = $(this);
     $.ajax({
         method: "Post",
         url: "/articles/save/" + articlesId
     }).done(function (data) {
-        window.location = "/"
+        // window.location = "/"
+        var parent = self.closest(".card-panel")
+        parent.remove()
     })
 })
 
 $(".delete").on("click", function () {
     var articlesId = $(this).attr("data-id");
+    var self = $(this);
     $.ajax({
         method: "Post",
         url: "/articles/delete/" + articlesId
     }).done(function (data) {
-        window.location = "/saved"
+        var parent = self.closest(".card-panel")
+        parent.remove()
     })
 })
 
@@ -32,6 +37,8 @@ $(".saveNote").on("click", function () {
     var articlesId = $(this).attr("data-id");
     if (!$("#noteBody" + articlesId).val()) {
         alert("please enter a note to save")
+       
+    } else {
         $.ajax({
             method: "POST",
             url: "/notes/save/" + articlesId,

@@ -1,7 +1,5 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-var Note = require("./Note")
-
 
 var ArticleSchema = new Schema({
     title: {
